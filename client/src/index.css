@@ -1,0 +1,130 @@
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.commonloading{
+  margin-top: 100px;
+}
+
+
+.thiscard{
+  height: 350px;
+}
+.card{
+  height: 300px;
+}
+
+.card .card-image img {
+  display: block;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 180px;
+  width: auto;
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+.card-content{
+  height: 130px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.slide{
+  height: 370px;
+  margin: 0 50px 0 50px;
+  /* object-fit: cover; */
+  box-sizing: border-box;
+}
+
+.slide-cont{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20px 20px 20px;
+}
+
+.slide-cont .slide-info{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  max-width: 50%;
+}
+
+.slide-cont .slide-info button{
+  align-self: flex-end;
+}
+
+.slide-element .slide-cont img{
+  height: 370px;
+  margin-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+li nav i.material-icons{
+  line-height: 0;
+  height: 0;
+}
+
+nav{
+  padding-top: 25px;
+  height: 140px;
+  background:#000000;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.icon{
+  margin-right: 5px;
+}
+
+.redes a, .contacto a{
+  /* margin-right: 20px; */
+  margin-top: 15px;
+}
+
+#buscador{
+  border-radius: 10px;
+  margin: 12px 0 0 0;
+}
+
+.btn{
+  border-radius: 10px;
+  /* margin: 5px; */
+}
+
+.brand-logo{
+  width: 150px;
+  height: auto;
+}
+

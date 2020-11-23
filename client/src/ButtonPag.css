@@ -1,0 +1,25 @@
+.buttonPag
+{
+  position: relative;
+  text-align: center;
+  width: 100px;
+  padding: 0,5px;
+  font-size: 17px;
+  color: #080808;
+ 
+  font-weight: 200;
+  border: 1px  #def415;
+  text-transform: none;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 80px;
+  transition: 1,8s;
+
+}
+
+.button:hover
+{
+  box-shadow: 0 5px 50px 0 #f4de15 inset, 0 5px 50px 0 #ecca08,
+              0 5px 50px 0 #ebe84a inset, 0 5px 50px 0 #f3ef04;
+  text-shadow: 0 0 5px #000000, 0 0 5px #000000;            
+}
