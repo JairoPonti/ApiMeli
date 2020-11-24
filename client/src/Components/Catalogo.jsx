@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Paginas2 from './Paginas2'
 import '../Button.css'
+import {useSelector} from 'react-redux'
 // import '../Body.css'
 
 function Catalogo(props) {
 	const [ord, setOrd] = useState({})
+	const prueba = useSelector(store => store.productos.array )
 
 	useEffect(() => {
 		Promise.resolve(props.state)
@@ -83,7 +85,7 @@ function Catalogo(props) {
 			</div>
 			<div className="content">
 				<div className="row">
-					{ord.results ? <Paginas2 p={ord.results} /> : null}
+				{prueba ? <Paginas2 p={prueba.results} /> : null}
 				</div>
 			</div>
 		</div >

@@ -1,9 +1,10 @@
 {
-  "name": "Api Meli",
+  "name": "ApiMeli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon L",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
