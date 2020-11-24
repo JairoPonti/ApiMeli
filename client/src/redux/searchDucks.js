@@ -6,20 +6,23 @@ import axios from 'axios'
 const dataInicial = {
     array: [],
     offset: 0,
-    value: ""
+    value: []
 }
 
 //Types
 const OBTENER_PRODUCTOS = 'OBTENER_PRODUCTOS'
 const SIGUIENTES_PRODUCTOS = 'SIGUIENTES_PRODUCTOS'
+const ANTERIORES_PRODUCTOS = 'ANTERIORES_PRODUCTOS'
 
 
 //Reducer
 export default function searchReducer(state= dataInicial, action){
     switch(action.type){
     case OBTENER_PRODUCTOS:
-        return {...state, array: action.payload}
+        return {...state, array: action.payload, value: action.value}
     case SIGUIENTES_PRODUCTOS:
+        return {...state, array: action.payload.array, offset: action.payload.offset, value: action.payload.value}
+   case ANTERIORES_PRODUCTOS:
         return {...state, array: action.payload.array, offset: action.payload.offset}
         default:
             return state
@@ -52,17 +55,16 @@ export const obtenerProductos = (valor) => async (dispatch, getState) => {
 
            dispatch({
             type:OBTENER_PRODUCTOS,
-            payload: { 
-            array: res.data.results,
+            payload: res.data.results,
             value: valor
-         }  
+          
        })
     } catch (error) {
         console.log(error)
     }
 }
 
-export const siguientesProductos = ( value) => async (dispatch, getState) => {
+export const siguientesProductos = ( valor) => async (dispatch, getState) => {
     
     
     // console.log('getState', getState().productos.limit)
@@ -70,13 +72,37 @@ export const siguientesProductos = ( value) => async (dispatch, getState) => {
    const siguientes = offset + 30
 
  try {
-      const res= await  axios.get('https://api.mercadolibre.com/sites/MLA/search?q=' + value + '&offset=' + siguientes + '&limit=30') // busqueda luego de q= + req.query.q + 
+      const res= await  axios.get('https://api.mercadolibre.com/sites/MLA/search?q=' + valor + '&offset=' + siguientes + '&limit=30') // busqueda luego de q= + req.query.q + 
 
            dispatch({
             type:SIGUIENTES_PRODUCTOS,
             payload: {
                 array:res.data.results,
-                offset: siguientes
+                offset: siguientes,
+                value: valor
+            }
+       })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+//::::::PRUEBA PARA BOTÓN DE PAG ANTERIOR
+export const anterioresProductos = ( value) => async (dispatch, getState) => {
+    
+    
+    // console.log('getState', getState().productos.limit)
+   const offset = getState().productos.offset
+   const anteriores = offset - 30
+
+ try {
+      const res= await  axios.get('https://api.mercadolibre.com/sites/MLA/search?q=' + value + '&offset=' + anteriores + '&limit=30') // busqueda luego de q= + req.query.q + 
+
+           dispatch({
+            type:ANTERIORES_PRODUCTOS,
+            payload: {
+                array:res.data.results,
+                offset: anteriores
             }
        })
     } catch (error) {

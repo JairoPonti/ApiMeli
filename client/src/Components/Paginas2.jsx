@@ -1,22 +1,24 @@
 import React, { Component } from 'react'
 import ProductCard from './ProductCard'
 import {useDispatch, useSelector} from 'react-redux'
-import {obtenerProductos, siguientesProductos} from '../redux/searchDucks'
+import {obtenerProductos, siguientesProductos, anterioresProductos} from '../redux/searchDucks'
 // import Footer from './Footer'
 // import Slide from './Slide'
-import { CommonLoading } from 'react-loadingg';
+
 
 
 const Paginas = () => {
 
       const dispatch = useDispatch()
 
-      const productos = useSelector(store => store.productos.array.array )
+      const productos = useSelector(store => store.productos.array )
       console.log(productos)
 
-      const value = useSelector(store => store.productos.array.value)
+      const value = useSelector(store => store.productos.value)
       console.log(value)
+      
     
+      
 
  return (
 
@@ -42,7 +44,11 @@ const Paginas = () => {
 
         ) : <h3 style= {{textAlign: "center"}}>Tu búsqueda aparecerá aquí</h3>
         }
-        {productos ? <button className="btn active yellow" onClick={() => dispatch(siguientesProductos())}>siguiente</button>
+        {productos ?
+         <div>
+         <button className="btn active yellow" onClick={() => dispatch(siguientesProductos(value))}>siguientes</button>
+         <button className="btn active yellow" onClick={() => dispatch(anterioresProductos(value))}>anteriores</button>
+         </div>
         : null}
      </div> 
        {/* <Footer prodsPerPage={this.state.productPerPage} totalProds={this.props.p.length} paginate={paginate} nextPage={nextPage} prevPage={prevPage} /> */}
