@@ -6,6 +6,7 @@ import {obtenerProductos, siguientesProductos} from '../redux/searchDucks'
 // import Slide from './Slide'
 import { CommonLoading } from 'react-loadingg';
 
+
 const Paginas = () => {
 
       const dispatch = useDispatch()
@@ -26,7 +27,7 @@ const Paginas = () => {
         {/* <Slide currentProduct={this.props.p} /> */}
         {productos ? productos.map((e) =>
 
-            <div className="col s12 m6 l3 thiscard" key={e.id}>
+            <div className="col s13 m6 l4 " key={e.id}>
                 <ProductCard
                     img={e.thumbnail}
                     title={e.title}
@@ -39,9 +40,9 @@ const Paginas = () => {
                
             </div>
 
-        ) : <h3>Tu búsqueda aparecerá aquí</h3>
+        ) : <h3 style= {{textAlign: "center"}}>Tu búsqueda aparecerá aquí</h3>
         }
-        {productos ? <button onClick={() => dispatch(siguientesProductos())}>siguiente</button>
+        {productos ? <button className="btn active yellow" onClick={() => dispatch(siguientesProductos())}>siguiente</button>
         : null}
      </div> 
        {/* <Footer prodsPerPage={this.state.productPerPage} totalProds={this.props.p.length} paginate={paginate} nextPage={nextPage} prevPage={prevPage} /> */}
