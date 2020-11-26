@@ -8,7 +8,7 @@ import {
   siguientesProdFil,
   anterioresProdFil,
 } from "../redux/searchDucks";
-import Footer from "./Footer";
+
 
 const Paginas = () => {
   const dispatch = useDispatch();
@@ -53,22 +53,7 @@ const Paginas = () => {
               </div>
             ))
           : leyenda}
-        {productos.length > 0 ? (
-          <div style={{ textAlign: "center" }}>
-            <button
-              className="btn active yellow"
-              onClick={() => dispatch(siguientesProductos(value))}
-            >
-              siguientes
-            </button>
-            <button
-              className="btn active yellow"
-              onClick={() => dispatch(anterioresProductos(value))}
-            >
-              anteriores
-            </button>
-          </div>
-        ) : null}
+  
       </div>
 
       <div className="row">
@@ -88,23 +73,41 @@ const Paginas = () => {
             ))
           : null}
 
-        {prodFiltrados.length > 0 ? (
+  
+      </div>
+      {productos.length > 0 ? (
           <div style={{ textAlign: "center" }}>
             <button
-              className="btn active yellow"
+              className="btn active cyan darken-3"
+              onClick={() => dispatch(siguientesProductos(value))}
+            >
+              siguientes
+            </button>
+            <button
+              className="btn active cyan darken-3"
+              onClick={() => dispatch(anterioresProductos(value))}
+            >
+              anteriores
+            </button>
+          </div>
+        ) : null}
+
+      {prodFiltrados.length > 0 && interruptor === false ? (
+          <div style={{ textAlign: "center", position: "sticky"}}>
+            <button
+              className="btn active cyan darken-3"
               onClick={() => dispatch(siguientesProdFil(value))}
             >
               siguientes
             </button>
             <button
-              className="btn active yellow"
+              className="btn active cyan darken-3"
               onClick={() => dispatch(anterioresProdFil(value))}
             >
               anteriores
             </button>
           </div>
         ) : null}
-      </div>
     </div>
   );
 };

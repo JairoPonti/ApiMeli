@@ -43,7 +43,7 @@ export class Buscador extends Component {
                       className="autocomplete center-align  white lighten-2 col l12 m12 s12"
                     />
                   </div>
-                  <button type="submit" className="btn active yellow">
+                  <button type="submit" className="btn active cyan darken-3">
                     BUSCAR
                   </button>
                 </form>

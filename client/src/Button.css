@@ -19,7 +19,7 @@
 
 .button:hover
 {
-  box-shadow: 0 5px 50px 0 #f4de15 inset, 0 5px 50px 0 #ecca08,
-              0 5px 50px 0 #ebe84a inset, 0 5px 50px 0 #f3ef04;
+  box-shadow: 0 5px 50px 0 #159bf4 inset, 0 5px 50px 0 #0872ec,
+              0 5px 50px 0 #86852c inset, 0 5px 50px 0 #8f8e44;
   text-shadow: 0 0 5px #000000, 0 0 5px #000000;            
 }
