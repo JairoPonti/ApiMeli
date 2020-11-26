@@ -8,7 +8,8 @@ const dataInicial = {
     resFiltrados: [],
     offset: 0,
     offsetFil: 0,
-    value: []
+    value: [],
+    interruptor: false
 }
 
 //Types
@@ -26,7 +27,7 @@ const PARA_FILTRAR_MAYOR_PRECIO = 'PARA_FILTRAR_MAYOR_PRECIO'
 export default function searchReducer(state= dataInicial, action){
     switch(action.type){
     case OBTENER_PRODUCTOS:
-        return {...state, array: action.payload, value: action.value}
+        return {...state, array: action.payload, value: action.value, interruptor: true}
     case SIGUIENTES_PRODUCTOS:
         return {...state, array: action.payload.array, offset: action.payload.offset, value: action.payload.value}
         case SIGUIENTES_PRODUCTOS_FILTRADOS:
@@ -36,13 +37,13 @@ export default function searchReducer(state= dataInicial, action){
     case ANTERIORES_PRODUCTOS_FILTRADOS:
             return {...state, resFiltrados: action.payload.resFiltrados, offsetFil: action.payload.offset}
     case PARA_FILTRAR_USADOS:
-        return {...state,  resFiltrados: action.payload, value: action.value}
+        return {...state,  resFiltrados: action.payload, value: action.value, interruptor: false}
     case PARA_FILTRAR_NUEVOS:
-         return {...state,  resFiltrados: action.payload, value: action.value}
+         return {...state,  resFiltrados: action.payload, value: action.value, interruptor: false }
     case PARA_FILTRAR_MENOR_PRECIO:
-        return {...state,  resFiltrados: action.payload, value: action.value}
+        return {...state,  resFiltrados: action.payload, value: action.value, interruptor: false}
     case PARA_FILTRAR_MAYOR_PRECIO:
-          return {...state,  resFiltrados: action.payload, value: action.value}
+          return {...state,  resFiltrados: action.payload, value: action.value, interruptor: false}
         default:
             return state
         
@@ -51,20 +52,8 @@ export default function searchReducer(state= dataInicial, action){
 }
 
 
-//Acciones
-// export function obtenerProductos (valor)  {
-//     return function(dispatch) {
-//        return  axios.get('https://api.mercadolibre.com/sites/MLA/search?q=' + valor + '&limit=30') // busqueda luego de q= + req.query.q + 
-      
-//        .then(res=>{
-//            dispatch({
-//             type:OBTENER_PRODUCTOS,
-//             payload: res.data.results})
-//        });
-//     };
-// };
-    
-//Prueba
+
+//::::: OBTENER PRODUCTOS
 export const obtenerProductos = (valor) => async (dispatch, getState) => {
 
   
@@ -82,6 +71,8 @@ export const obtenerProductos = (valor) => async (dispatch, getState) => {
         console.log(error)
     }
 }
+
+ //:::: SIGUIENTES Y ANTERIORES
 
 export const siguientesProductos = ( valor) => async (dispatch, getState) => {
     
@@ -106,7 +97,7 @@ export const siguientesProductos = ( valor) => async (dispatch, getState) => {
     }
 }
 
-//::::::PRUEBA PARA BOTÓN DE PAG ANTERIOR
+
 export const anterioresProductos = ( value) => async (dispatch, getState) => {
     
     
@@ -146,7 +137,7 @@ export const paraFiltrarUsados = (valor) => async (dispatch, getState) => {
        }
    }
 
-//    Ver nuevos
+//Ver nuevos
    export const paraFiltrarNuevos = (valor) => async (dispatch, getState) => {
 
     try {
@@ -188,7 +179,7 @@ export const paraFiltrarUsados = (valor) => async (dispatch, getState) => {
     }
 }
 
-//::::::PRUEBA PARA BOTÓN DE PAG ANTERIOR
+
 export const anterioresProdFil = ( value) => async (dispatch, getState) => {
     
     
@@ -246,6 +237,3 @@ export const paraFiltrarMenorP = (valor) => async (dispatch, getState) => {
    }
 
 
-export function filtrarRes(payload) {
-    return { type: "FILTRADO", payload };
-  }

@@ -6,6 +6,7 @@ import './App.css';
 import {Provider} from 'react-redux'
 import generateStore from './redux/store'
 import Buscador from '../src/Components/Buscador'
+import Footer from './Components/Footer.jsx';
 
 
 class App extends Component {
@@ -55,6 +56,7 @@ class App extends Component {
       <Router>
       <Route exact path="/" component={Buscador} />
       <Route path="/" render={() => <Catalogo state={this.state} />} />
+      <Route exact path="/" component={Footer} />
       </Router>
       </Provider>
     );

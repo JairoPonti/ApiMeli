@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import {  obtenerProductos } from "../redux/searchDucks"
-
-
+import { obtenerProductos } from "../redux/searchDucks";
 
 export class Buscador extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: ""
+      title: "",
     };
   }
   handleChange(event) {
@@ -17,7 +15,7 @@ export class Buscador extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    this.props.obtenerProductos (this.state.title);
+    this.props.obtenerProductos(this.state.title);
   }
 
   render() {
@@ -25,30 +23,33 @@ export class Buscador extends Component {
     return (
       <div>
         <nav className="row">
-          <div className="blk col s8 push-s2"> {/* Con esta clase hago que el buscador se centre y no ocupe toda la pantalla */}
-          <div className="center-align">
-            <div  className="blk input-field col s12">
-        <form className="form-container" onSubmit={(e) => this.handleSubmit(e)}>
-          <div>
-  
-            <input
-              type="text"
-              id="title"
-              autoComplete="off"
-              value={title}
-              onChange={(e) => this.handleChange(e)}
-              placeholder= "Buscar productos y más..."
-              className="autocomplete center-align  white lighten-2 col l12 m12 s12"
-            />
+          <div className="blk col s8 push-s2">
+            {" "}
+            {/* Con esta clase hago que el buscador se centre y no ocupe toda la pantalla */}
+            <div className="center-align">
+              <div className="blk input-field col s12">
+                <form
+                  className="form-container"
+                  onSubmit={(e) => this.handleSubmit(e)}
+                >
+                  <div>
+                    <input
+                      type="text"
+                      id="title"
+                      autoComplete="off"
+                      value={title}
+                      onChange={(e) => this.handleChange(e)}
+                      placeholder="Buscar productos, marcas y más..."
+                      className="autocomplete center-align  white lighten-2 col l12 m12 s12"
+                    />
+                  </div>
+                  <button type="submit" className="btn active yellow">
+                    BUSCAR
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
-          <button type="submit" className= "btn active yellow">BUSCAR</button>
-        </form>
-        <ul>
-        
-        </ul>
-        </div>
-        </div>
-        </div>
         </nav>
       </div>
     );
@@ -57,19 +58,14 @@ export class Buscador extends Component {
 
 function mapStateToProps(state) {
   return {
-    products: state.array
+    products: state.array,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    obtenerProductos: title => dispatch(obtenerProductos(title))
+    obtenerProductos: (title) => dispatch(obtenerProductos(title)),
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Buscador);
-
-
+export default connect(mapStateToProps, mapDispatchToProps)(Buscador);
