@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ProductCard from './ProductCard'
 import {useDispatch, useSelector} from 'react-redux'
-import {obtenerProductos, siguientesProductos, anterioresProductos} from '../redux/searchDucks'
+import {obtenerProductos, siguientesProductos, anterioresProductos, siguientesProdFil, anterioresProdFil} from '../redux/searchDucks'
 // import Footer from './Footer'
 // import Slide from './Slide'
 
@@ -11,15 +11,20 @@ const Paginas = () => {
 
       const dispatch = useDispatch()
 
-      const productos = useSelector(store => store.productos.array )
+      var productos = useSelector(store => store.productos.array )
       console.log(productos)
 
-      const prodFiltrados = useSelector(store => store.productos.resParaFiltrar)
+      const prodFiltrados = useSelector(store => store.productos.resFiltrados)
 
       const value = useSelector(store => store.productos.value)
       console.log(value)
+
+      var leyenda = <h3 style= {{textAlign: "center"}}>Tu búsqueda aparecerá aquí</h3>
       
-    
+    if (prodFiltrados.length > 0){
+        productos= false
+        leyenda= null 
+    }
       
 
  return (
@@ -44,7 +49,7 @@ const Paginas = () => {
                
             </div>
 
-        ) : <h3 style= {{textAlign: "center"}}>Tu búsqueda aparecerá aquí</h3>
+        ) : leyenda
         }
         {productos.length > 0 ?
          <div>
@@ -73,9 +78,11 @@ const Paginas = () => {
 ) : null}
 
 {prodFiltrados.length > 0 ?
+
+//  {productos} = false,
 <div>
-<button className="btn active yellow" onClick={() => dispatch(siguientesProductos(value))}>siguientes</button>
-<button className="btn active yellow" onClick={() => dispatch(anterioresProductos(value))}>anteriores</button>
+<button className="btn active yellow" onClick={() => dispatch(siguientesProdFil(value))}>siguientes</button>
+<button className="btn active yellow" onClick={() => dispatch(anterioresProdFil(value))}>anteriores</button>
 </div>
 : null}
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Paginas2 from './Paginas2'
 import '../Button.css'
 import {useSelector, useDispatch} from 'react-redux'
-import {paraFiltrarUsados, paraFiltrarNuevos} from '../redux/searchDucks'
+import {paraFiltrarUsados, paraFiltrarNuevos, paraFiltrarMayorP, paraFiltrarMenorP} from '../redux/searchDucks'
 // import '../Body.css'
 
 const Catalogo = () => {
@@ -54,16 +54,16 @@ const Catalogo = () => {
 				<h5 style= {{display: "flex", justifyContent:"center"}}>Ordená los productos</h5>
 				<br/>
 				<div style= {{display: "flex", justifyContent:"center"}}>
-				{/* <button type="submit" className="btn yellow button" onClick={() => {sort('pricedesc') }}>
+				 <button type="submit" className="btn yellow button" onClick={() => dispatch(paraFiltrarMenorP(value))}>
 						<i className="material-icons">attach_money</i>Menor a Mayor
 				</button>
 				
-				<button type="submit" className="btn yellow button" onClick={() => {sort('priceAsc') }}>
+				<button type="submit" className="btn yellow button" onClick={() => dispatch(paraFiltrarMayorP(value))}>
 						<i className="material-icons ">attach_money</i>Mayor a Menor
-          			</button> */}
-					  {/* <button type="submit" className="btn yellow button" onClick={() => {sort('priceAsc') }}>
+          			</button> 
+					   {/* <button type="submit" className="btn yellow button" onClick={() => {sort('priceAsc') }}>
 					Todos
-          			</button> */}
+          			</button>  */}
 				<button type="submit" className="btn yellow button"
 			       onClick={() => dispatch(paraFiltrarNuevos(value))}>
 					Nuevos
