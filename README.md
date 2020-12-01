@@ -10,7 +10,7 @@ En la dirección del proyecto ('/ApiMeli/client') correr:
 npm start
 para hacer correr el Front-End
 
-En ambas carpetas (api y client) habrá que instalar las dependencias que el pryecto requiere. Para ello en la carpeta "client" bastará con realizar un npm install, y en la carpeta "api" se deberá hacer: npm install express cors node-fetch 
+En ambas carpetas (api y client) habrá que instalar las dependencias que el proyecto requiere. Para ello en la carpeta "client" bastará con realizar un npm install, y en la carpeta "api" se deberá hacer: npm install express cors node-fetch 
 
 Tanto el Back-End como el Front-End fueron desarrollados por mí.
 
