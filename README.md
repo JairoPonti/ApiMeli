@@ -16,6 +16,7 @@ Tanto el Back-End como el Front-End fueron desarrollados por mí.
 
 <h3>Inicio</h3>
 <img src= "https://raw.githubusercontent.com/JairoPonti/ApiMeli/screenShots/client/src/Images/Image1.png"/>
+</br>
 
 <h3>COMPONENTES:</h3>
 
@@ -23,6 +24,8 @@ Tanto el Back-End como el Front-End fueron desarrollados por mí.
 </br>
 </br>
 <img src= "https://raw.githubusercontent.com/JairoPonti/ApiMeli/screenShots/client/src/Images/Image2.png"/>
+</br>
+</br>
 </br>
 <strong>En el Catálogo vas a poder ordenar por:</strong>
 
@@ -32,6 +35,8 @@ Tanto el Back-End como el Front-End fueron desarrollados por mí.
 </br>
 </br>
 <img src= "https://raw.githubusercontent.com/JairoPonti/ApiMeli/screenShots/client/src/Images/Image5.png"/>
+</br>
+</br>
 </br>
 </br>
 El componente Catalogo está <strong>paginado</strong> en "x" productos por página.
