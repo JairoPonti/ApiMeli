@@ -16,7 +16,7 @@ Tanto el Back-End como el Front-End fueron desarrollados por mí.
 
 <h3>COMPONENTES:</h3>
 
-<strong>Product Card:<strong/> Este componente renderiza la imagen y parte del título, además muestra el precio con su respectiva moneda, su condición (usado o nuevo) y el stock disponible.
+<strong>Product Card:</strong> Este componente renderiza la imagen y parte del título, además muestra el precio con su respectiva moneda, su condición (usado o nuevo) y el stock disponible.
 
 <strong>En el Catálogo vas a poder ordenar por:</strong>
 
