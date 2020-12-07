@@ -14,7 +14,7 @@ En ambas carpetas (api y client) habrá que instalar las dependencias que el pro
 
 Tanto el Back-End como el Front-End fueron desarrollados por mí.
 
-<h3>Inicio</h3>
+<h3>INICIO</h3>
 <img src= "https://raw.githubusercontent.com/JairoPonti/ApiMeli/screenShots/client/src/Images/Image1.png"/>
 </br>
 
@@ -44,7 +44,7 @@ El componente Catalogo está <strong>paginado</strong> en "x" productos por pág
 </br>
 <img src= "https://raw.githubusercontent.com/JairoPonti/ApiMeli/screenShots/client/src/Images/Image3.png"/>
 
-<h3>Request a la api:</h3>
+<h3>REQUEST A LA API:</h3>
 
 Encontraba muchos repositorios y soluciones a la paginación en internet que no me convencían, y por eso decidí implementar tanto la paginación como los pedidos a la api <strong>trabajando conjuntamente con la tecnología Redux</strong>, utilizando distintas propiedades en el store como por ejemplo un offset (parámetro dinámico) que me permite arrojar resultados de a 30. Y tanto el ordenamientio de mayor a menor y menor a mayor precio como el filtrado por condición "usados" o "nuevos" lo manejé dentro de un array en el store el cual me ordena los productos según lo pedido, para luego ser renderizados.
 
