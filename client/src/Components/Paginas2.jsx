@@ -79,15 +79,15 @@ const Paginas = () => {
           <div style={{ textAlign: "center" }}>
             <button
               className="btn active cyan darken-3"
-              onClick={() => dispatch(siguientesProductos(value))}
-            >
-              siguientes
-            </button>
-            <button
-              className="btn active cyan darken-3"
               onClick={() => dispatch(anterioresProductos(value))}
             >
               anteriores
+            </button>
+            <button
+              className="btn active cyan darken-3"
+              onClick={() => dispatch(siguientesProductos(value))}
+            >
+              siguientes
             </button>
           </div>
         ) : null}
